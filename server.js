@@ -5,6 +5,8 @@ import authRoutes from "./routes/authRoutes.js";
 import dotenv from "dotenv";
 import certificateRoutes from "./routes/certificateRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
+import questionRoutes from "./routes/questionRoutes.js";
+import examRoutes from "./routes/examRoutes.js"
 dotenv.config({ path: "./.env" });
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -26,6 +28,8 @@ app.use("/api/auth", authRoutes);
 
 app.use("/api/certificate", certificateRoutes);
 app.use("/api/admin", adminRoutes);
+app.use("/api/exams", examRoutes);
+app.use("/api/questions", questionRoutes);
 // Root route
 app.get("/", (req, res) => res.json({ message: "Server running 🚀" }));
 
